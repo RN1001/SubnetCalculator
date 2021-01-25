@@ -71,7 +71,7 @@ namespace SubnetCalculator
 
         private void ResetBtn_Click(object sender, RoutedEventArgs e)
         {
-            solutions.Items.Refresh();
+            // needs to clear the datagrid without appending data
             solutions.ItemsSource = null;
             solutions.Items.Refresh();
             CalculateSubnetsBtn.IsEnabled = true;
