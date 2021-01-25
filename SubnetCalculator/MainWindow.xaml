@@ -1,0 +1,35 @@
+﻿<Window x:Class="SubnetCalculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SubnetCalculator"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <RadioButton Content="Class A" Margin="17,20,704,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
+        <RadioButton Content="Class B" Margin="106,20,632,0" VerticalAlignment="Top" Checked="RadioButton_Checked_1"/>
+        <RadioButton Content="Class C" Margin="192,20,531,0" VerticalAlignment="Top" Checked="RadioButton_Checked_2"/>
+        <Label Content="IP Address:" HorizontalAlignment="Left" Margin="17,58,0,0" VerticalAlignment="Top"/>
+        <Label Content="" Name="IpAddress" HorizontalAlignment="Left" Margin="97,58,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Name="ComboBox1" Margin="182,58,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged"/>
+        <Label Content="" Name="MaxHosts" HorizontalAlignment="Left" Margin="127,95,0,0" VerticalAlignment="Top"/>
+        <Button Content="Calculate" Name="CalculateSubnetsBtn"  HorizontalAlignment="Left" Margin="250,98,0,0" VerticalAlignment="Top" Click="CalculateSubnetsBtn_Click"/>
+        <Label Content="Max Hosts:" HorizontalAlignment="Left" Margin="17,95,0,0" VerticalAlignment="Top"/>
+        <Label Content="Max Subnets:" HorizontalAlignment="Left" Margin="17,129,0,0" VerticalAlignment="Top"/>
+        <Label Content="" Name="MaxSubnets" HorizontalAlignment="Left" Margin="127,129,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.7,1.119"/>
+        <Label Content="Usable Hosts:" HorizontalAlignment="Left" Margin="17,165,0,0" VerticalAlignment="Top"/>
+        <Label Content="" Name="UsableHosts" HorizontalAlignment="Left" Margin="127,165,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.7,1.119"/>
+
+        <DataGrid Margin="324,20,32,194" Name="solutions" DataContext="{Binding solutions, Mode=OneWay}"  AutoGenerateColumns="False" HorizontalScrollBarVisibility="Visible">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Network Address" Binding="{Binding NetworkAddress}"/>
+                <DataGridTextColumn Header="First Usable Address" Binding="{Binding FirstUsableAddress}"/>
+                <DataGridTextColumn Header="Last Usable Address" Binding="{Binding LastUsableAddress}"/>
+                <DataGridTextColumn Header="Broadcast Address" Binding="{Binding BroadcastAddress}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="250,165,0,0" VerticalAlignment="Top" Width="52" Click="Button_Click"/>
+        <Button Content="Reset" x:Name="ResetBtn"  HorizontalAlignment="Left" Margin="250,130,0,0" VerticalAlignment="Top" Width="52" Click="ResetBtn_Click"/>
+    </Grid>
+</Window>
